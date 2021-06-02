@@ -3,10 +3,19 @@ import requests
 
 
 def home(request):
+    cxt = {}
     if request.method == "POST":
+        lattitude = request.POST['lat']
+        long = request.POST['long']
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64;"}
         weather_request = requests.get(
-            "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=51.5&lon=-0.25",
+            "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat={}&lon={}".format(
+                lattitude, long),
             headers=headers)
-    result = weather_request.content
-    return render(request, "home/index.html", {result: result})
+        print(weather_request.content)
+        cxt = {
+            "results": weather_request.content
+        }
+    else:
+        cxt = {}
+    return render(request, "home/index.html", cxt)
