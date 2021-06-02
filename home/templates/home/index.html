@@ -3,9 +3,24 @@
 
 {% block content %}
 <div class="home">
-    <div class="search-container">
-        <span> Search </span>
-        <input type="text" name="search" id="search" class="form-control" />
-    </div>
+
+
+    <form method="POST" action = "/">
+        {% csrf_token %}
+        <div class="form-control">
+            <label> Enter lattitude</label>
+            <input type="text" name="lat" id="lat" class="form-control" />
+        </div>
+
+
+        <div class="form-control">
+            <label> Enter Longitude</label>
+            <input type="text" name="long" id="long" class="form-control" />
+        </div>
+
+        <button class="btn btn-primary" type = "submit"> get Weather data </button>
+
+    </form>
+
 </div>
 {% endblock %}

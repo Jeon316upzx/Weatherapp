@@ -8,11 +8,13 @@
 }
 
 .home {
-  position: relative;
+  display: flex;
+  flex-direction: row;
   min-height: 100vh;
 }
 
-#search {
+#lat,
+#long {
   height: 60px !important;
   width: 400px;
   box-shadow: none;
@@ -21,19 +23,4 @@
 
 #search:focus {
   border: 1px solid #000000;
-}
-
-.search-container span {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 50px;
-  opacity: 0.5;
-}
-
-.search-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
